@@ -12,6 +12,9 @@
         <a href="{{ route('articles.edit', ['id' => $article->id]) }}">
             <h3>Изменить</h3>
         </a>
+        {{ Form::model($article, ['url' => route('articles.destroy', $article), 'method' => 'DELETE']) }}
+            {{ Form::submit('Удалить') }}
+        {{ Form::close() }}
     @endforeach
     {{ $articles->links() }}
 @endsection
