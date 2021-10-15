@@ -29,6 +29,12 @@
             >
                 Articles
             </a>
+            <a
+                href="{{ route('articles.create') }}"
+                class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"
+            >
+                Create article
+            </a>
         <div>
         <div class="container mt-4">
             <h1>@yield('header')</h1>
