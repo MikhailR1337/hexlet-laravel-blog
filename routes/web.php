@@ -19,5 +19,7 @@ Route::get('/', function () {
 
 Route::get('/about', function () {
     $tags = ['обучение', 'программирование', 'php', 'oop'];
-    return view('about', ['tags' => $tags]);
+    $articles = App\Models\Article::all();
+
+    return view('about', ['tags' => $tags, 'articles' => $articles]);
 });
