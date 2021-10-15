@@ -11,7 +11,7 @@ class PageController extends Controller
         $tags = ['обучение', 'программирование', 'php', 'oop'];
         $articles = \App\Models\Article::all();
 
-        return view('about', ['tags' => $tags, 'articles' => $articles]);
+        return view('about', compact('tags', 'articles'));
     }
 
     public function welcome()

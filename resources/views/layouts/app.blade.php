@@ -10,6 +10,26 @@
         <script src="{{ asset('js/app.js') }}"></script>
     </head>
     <body>
+        <div>
+            <a
+                href="{{ route('welcome') }}"
+                class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"
+            >
+                Welcome
+            </a>
+            <a
+                href="{{ route('about') }}"
+                class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"
+            >
+                About
+            </a>
+            <a
+                href="{{ route('articles.index') }}"
+                class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"
+            >
+                Articles
+            </a>
+        <div>
         <div class="container mt-4">
             <h1>@yield('header')</h1>
             <div>
