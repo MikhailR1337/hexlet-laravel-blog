@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PageController::class, 'welcome']);
 
-Route::get('/about', function () {
-    $tags = ['обучение', 'программирование', 'php', 'oop'];
-    $articles = App\Models\Article::all();
-
-    return view('about', ['tags' => $tags, 'articles' => $articles]);
-});
+Route::get('/about', [PageController::class, 'about']);
