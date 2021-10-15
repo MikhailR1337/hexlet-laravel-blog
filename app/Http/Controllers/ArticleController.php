@@ -30,7 +30,10 @@ class ArticleController extends Controller
     {
         $data = $this->validate($request, [
             'name' => 'required|unique:articles',
-            'body' => 'required|min:1000',
+            'body' => [
+                'required',
+                'min:100'
+            ],
         ]);
 
         $article = new Article();
@@ -42,4 +45,24 @@ class ArticleController extends Controller
         return redirect()
             ->route('articles.index');
     }
+
+    public function edit($id)
+    {
+        $article = Article::findOrFail($id);
+        return view('article.edit', compact('article'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $article = Article::findOrFail($id);
+        $data = $this->validate($request, [
+            'name' => 'required|unique:articles,name,' . $article->id,
+            'body' => 'required|min:100',
+        ]);
+
+        $article->fill($data);
+        $article->save();
+        return redirect()
+            ->route('articles.index');
+        }
 }
