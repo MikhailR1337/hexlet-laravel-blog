@@ -8,6 +8,5 @@
         {{-- Используется для очень длинных текстов, которые нужно сократить --}}
         <div>{{Str::limit($article->body, 200)}}</div>
     @endforeach
-    <a href="{{ route('articles.index') . '?page=1' }}">Назад</a>
-    <a href="{{ route('articles.index') . '?page=2' }}">Вперед</a>
+    {{ $articles->links() }}
 @endsection
